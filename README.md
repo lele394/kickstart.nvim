@@ -1,5 +1,73 @@
 # kickstart.nvim
 
+
+
+## Personal notes
+### Installing markdown-render with latex support
+
+So it's been a bitch to install
+
+First, don't forget to load node from the bashrc lazy loading; (22.x + otherwise copilot will be mad)
+
+Install tree-sitter cl to install latex (required)
+```sh
+npm install -g tree-sitter-cli
+```
+
+Also need libtexprintf
+```sh
+git clone https://github.com/bartp5/libtexprintf.git
+cd libtexprintf
+./autogen
+./configure
+make
+make install
+
+# Add this to bashrc for path update
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+```
+Might need to `sudo` the install
+
+To test : 
+```sh
+utftex '$E = mc^2$'
+```
+
+
+Also, make sure neovim is built with python support, check with :
+```sh
+:echo has('python3')
+:echo exepath('python3')
+```
+
+If not, just rebuild :
+```sh
+cd ~/neovim
+make distclean  # optional but recommended
+make CMAKE_BUILD_TYPE=Release \
+     CMAKE_EXTRA_FLAGS="-DPYTHON3_EXECUTABLE=$(which python3)"
+sudo make install
+```
+
+Finally install latex for tree-sitter
+```sh
+:TSInstall latex
+```
+
+And voila, neovim with markdown rendering and latex support. Hopefully...
+
+
+
+# Latex
+
+$\begin{pmatrix}1\\2\end{pmatrix}$ + $\begin{pmatrix}1\\2\\3\end{pmatrix}$
+
+$\sqrt{3x-1}+(1+x)^2$
+
+$$
+\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n
+$$
+
 ## Introduction
 
 A starting point for Neovim that is:

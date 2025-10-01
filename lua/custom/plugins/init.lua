@@ -8,4 +8,6 @@ return {
   require 'custom.plugins.autopair',
   require 'custom.plugins.FTerm',
   require 'custom.plugins.copilot',
+  require 'custom.plugins.alpha',
+  require 'custom.plugins.render-markdown',
 }
