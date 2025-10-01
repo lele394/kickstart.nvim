@@ -7,4 +7,5 @@ return {
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.autopair',
   require 'custom.plugins.FTerm',
+  require 'custom.plugins.copilot',
 }
