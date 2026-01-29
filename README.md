@@ -3,6 +3,17 @@
 
 
 ## Personal notes
+
+### cluster fast install
+
+```sh
+curl -L https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux-x86_64.appimage -o nvim
+chmod +x nvim
+ls -lh nvim
+```
+
+
+
 ### Installing markdown-render with latex support
 
 So it's been a bitch to install
