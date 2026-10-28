@@ -47,7 +47,12 @@ return {
       },
     }
 
-    -- Keymap (your old `vim.cmd` version replaced with keymap API)
-    vim.keymap.set('n', '-', ':NvimTreeToggle<CR>', { desc = 'Toggle file explorer' })
+    -- Toggle the tree with <C-b>
+    -- See `:help nvim_tree.api.tree.toggle()`
+    local api = require 'nvim-tree.api'
+    vim.keymap.set('n', '<C-b>', api.tree.toggle, { desc = 'Toggle file explorer' })
+
+    -- Also keep the `-` toggle
+    vim.keymap.set('n', '-', api.tree.toggle, { desc = 'Toggle file explorer' })
   end,
 }
